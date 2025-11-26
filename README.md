@@ -24,40 +24,43 @@ caswaf-security-lab/
 └── README.md               # Tài liệu hướng dẫn
 ```
 
-🚀 Hướng dẫn Cài đặt
+## 🚀 Hướng dẫn Cài đặt
 1. Yêu cầu (Prerequisites)
-Docker & Docker Compose
+- Docker & Docker Compose
 
-Python 3.x
+- Python 3.x
 
-Kali Linux (Khuyên dùng) hoặc Ubuntu.
+- Kali Linux (Khuyên dùng) hoặc Ubuntu.
 
 2. Khởi động WAF (CasWAF)
 Bash
-
+```text
 cd caswaf
 # Khởi động container WAF và Database
 sudo docker-compose up -d
+```
 CasWAF Dashboard sẽ chạy tại: http://localhost:17000 CasWAF Gateway sẽ lắng nghe tại: http://localhost:80
 
 3. Khởi động Backend (Vulnerable App)
 Mở một terminal mới:
 
 Bash
-
+```text
 cd vulnerable-app
 # Cài đặt thư viện (nếu chưa có)
 pip install flask
 # Chạy ứng dụng
 python3 app.py
+```
 App sẽ chạy tại: http://0.0.0.0:5000
 
 4. Cấu hình DNS giả lập
 Thêm dòng sau vào file /etc/hosts để giả lập tên miền:
 
 Plaintext
-
+```text
 127.0.0.1  test.waf.local
+```
 5. Cấu hình Dashboard
 Truy cập http://localhost:17000.
 
@@ -111,13 +114,13 @@ Kết quả: Bị chặn bởi Rule kiểm tra URI.
 
 1. Dashboard quản lý WAF
 Giao diện cấu hình Site và Rule.
-![Site](images/Screenshot_2025-11-26_221537.png)
+![Site](./images/Screenshot_2025-11-26_221537.png)
 
 ![Rules](images/Screenshot_2025-11-26_220818.png)
 
 2. WAF chặn thành công (403 Forbidden)
 Màn hình kẻ tấn công nhận được khi bị chặn.
-![SQLi](WAF/images/Screenshot_2025-11-26_220714.png)
+![SQLi](./images/Screenshot_2025-11-26_220714.png)
 
 ![XSS](images/Screenshot_2025-11-26_221943.png)
 
