@@ -114,23 +114,23 @@ Kết quả: Bị chặn bởi Rule kiểm tra URI.
 
 ### 1. Dashboard quản lý WAF
 Giao diện cấu hình Site và Rule.
-![Site](images/Screenshot%2025-11-26%221537.png)
+![Site](images/Screenshot%202025-11-26%20221537.png)
 
-![Rules](images/Screenshot%2025-11-26%220818.png)
+![Rules](images/Screenshot%202025-11-26%20220818.png)
 
 ### 2. WAF chặn thành công (403 Forbidden)
 Màn hình kẻ tấn công nhận được khi bị chặn.
-![SQLi](images/Screenshot%2025-11-26%220714.png)
+![SQLi](images/Screenshot%202025-11-26%20220714.png)
 
-![XSS](images/Screenshot%2025-11-26%221943.png)
+![XSS](images/Screenshot%202025-11-26%20221943.png)
 
-![CMDi](images/Screenshot%2025-11-26%222550.png)
+![CMDi](images/Screenshot%202025-11-26%20222550.png)
 
-![Path_Traversal](images/Screenshot%2025-11-26%222920.png)
+![Path_Traversal](images/Screenshot%202025-11-26%20222920.png)
 
 ### 3. Nhật ký tấn công (Audit Logs)
 Hệ thống ghi lại chi tiết IP, thời gian và payload tấn công.
-![Records](images/Screenshot%2025-11-26%220751.png)
+![Records](images/Screenshot%202025-11-26%20220751.png)
 
 
 ## ⚠️ Tuyên bố miễn trừ trách nhiệm (Disclaimer)
