@@ -114,13 +114,13 @@ Kết quả: Bị chặn bởi Rule kiểm tra URI.
 
 1. Dashboard quản lý WAF
 Giao diện cấu hình Site và Rule.
-![Site](./images/Screenshot_2025-11-26_221537.png)
+![Site](images/Screenshot 2025-11-26 221537.png)
 
 ![Rules](images/Screenshot_2025-11-26_220818.png)
 
 2. WAF chặn thành công (403 Forbidden)
 Màn hình kẻ tấn công nhận được khi bị chặn.
-![SQLi](./images/Screenshot_2025-11-26_220714.png)
+![SQLi](images/Screenshot_2025-11-26_220714.png)
 
 ![XSS](images/Screenshot_2025-11-26_221943.png)
 
