@@ -25,14 +25,14 @@ caswaf-security-lab/
 ```
 
 ## 🚀 Hướng dẫn Cài đặt
-1. Yêu cầu (Prerequisites)
+### 1. Yêu cầu (Prerequisites)
 - Docker & Docker Compose
 
 - Python 3.x
 
 - Kali Linux (Khuyên dùng) hoặc Ubuntu.
 
-2. Khởi động WAF (CasWAF)
+### 2. Khởi động WAF (CasWAF)
 Bash
 ```text
 cd caswaf
@@ -41,7 +41,7 @@ sudo docker-compose up -d
 ```
 CasWAF Dashboard sẽ chạy tại: http://localhost:17000 CasWAF Gateway sẽ lắng nghe tại: http://localhost:80
 
-3. Khởi động Backend (Vulnerable App)
+### 3. Khởi động Backend (Vulnerable App)
 Mở một terminal mới:
 
 Bash
@@ -54,14 +54,14 @@ python3 app.py
 ```
 App sẽ chạy tại: http://0.0.0.0:5000
 
-4. Cấu hình DNS giả lập
+### 4. Cấu hình DNS giả lập
 Thêm dòng sau vào file /etc/hosts để giả lập tên miền:
 
 Plaintext
 ```text
 127.0.0.1  test.waf.local
 ```
-5. Cấu hình Dashboard
+### 5. Cấu hình Dashboard
 Truy cập http://localhost:17000.
 
 Tạo Site mới:
@@ -78,10 +78,10 @@ Thêm rule chặn SQL Injection (Regex).
 
 Thêm rule chặn XSS (Regex <script>).
 
-🧪 Kịch bản Demo (Test Cases)
+## 🧪 Kịch bản Demo (Test Cases)
 Dưới đây là các kịch bản tấn công đã được thực hiện để kiểm chứng khả năng bảo vệ của WAF.
 
-1. Tấn công Cross-Site Scripting (XSS)
+### 1. Tấn công Cross-Site Scripting (XSS)
 Kẻ tấn công cố gắng chèn mã JavaScript độc hại để đánh cắp Cookie hoặc chuyển hướng người dùng.
 
 Payload: http://test.waf.local/xss?q=<script>alert('Hacked')</script>
@@ -92,7 +92,7 @@ Kết quả:
 
 🟢 Có WAF: Trả về lỗi 403 Forbidden.
 
-2. Tấn công SQL Injection (SQLi)
+### 2. Tấn công SQL Injection (SQLi)
 Kẻ tấn công cố gắng thao túng câu lệnh truy vấn Database.
 
 Payload: http://test.waf.local/sqli?id=1' OR '1'='1
@@ -103,35 +103,35 @@ Kết quả:
 
 🟢 Có WAF: Trả về lỗi 403 Forbidden.
 
-3. Tấn công Path Traversal
+### 3. Tấn công Path Traversal
 Kẻ tấn công cố gắng truy cập file hệ thống trái phép.
 
 Payload: http://test.waf.local/../../etc/passwd (Test bằng curl hoặc Burp Suite).
 
 Kết quả: Bị chặn bởi Rule kiểm tra URI.
 
-📸 Hình ảnh Demo (Evidence)
+## 📸 Hình ảnh Demo (Evidence)
 
-1. Dashboard quản lý WAF
+### 1. Dashboard quản lý WAF
 Giao diện cấu hình Site và Rule.
-![Site](images/Screenshot 2025-11-26 221537.png)
+![Site](images/Screenshot%2025-11-26%221537.png)
 
-![Rules](images/Screenshot_2025-11-26_220818.png)
+![Rules](images/Screenshot%2025-11-26%220818.png)
 
-2. WAF chặn thành công (403 Forbidden)
+### 2. WAF chặn thành công (403 Forbidden)
 Màn hình kẻ tấn công nhận được khi bị chặn.
-![SQLi](images/Screenshot_2025-11-26_220714.png)
+![SQLi](images/Screenshot%2025-11-26%220714.png)
 
-![XSS](images/Screenshot_2025-11-26_221943.png)
+![XSS](images/Screenshot%2025-11-26%221943.png)
 
-![CMDi](images/Screenshot_2025-11-26_222550.png)
+![CMDi](images/Screenshot%2025-11-26%222550.png)
 
-![Path_Traversal](images/Screenshot_2025-11-26_222920.png)
+![Path_Traversal](images/Screenshot%2025-11-26%222920.png)
 
-3. Nhật ký tấn công (Audit Logs)
+### 3. Nhật ký tấn công (Audit Logs)
 Hệ thống ghi lại chi tiết IP, thời gian và payload tấn công.
-![Records](images/Screenshot_2025-11-26_220751.png)
+![Records](images/Screenshot%2025-11-26%220751.png)
 
 
-⚠️ Tuyên bố miễn trừ trách nhiệm (Disclaimer)
+## ⚠️ Tuyên bố miễn trừ trách nhiệm (Disclaimer)
 Dự án này được xây dựng hoàn toàn cho mục đích GIÁO DỤC và NGHIÊN CỨU bảo mật. Tác giả không chịu trách nhiệm cho bất kỳ hành vi sử dụng sai mục đích nào trên các hệ thống thực tế mà không có sự cho phép.
