@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  caswaf:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "17000:17000"
+      - "80:80"
+    depends_on:
+      - db
+    command: ["./wait-for-it db:3306 -- ./server"]
+    volumes:
+      - ./conf:/conf/
+  db:
+     image: mysql:8.0.25
+     container_name: caswaf_db_1
+     environment:
+       MYSQL_ROOT_PASSWORD: "123"
+       MYSQL_DATABASE: "caswaf"
+     ports:
+       - "3306:3306"
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+      
+volumes:
+  db_data:
