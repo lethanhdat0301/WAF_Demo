@@ -1,16 +1,18 @@
-🛡️ CasWAF Security Lab - Web Application Firewall Demo
-Dự án này là một môi trường Lab giả lập để thực hành tấn công và phòng thủ Web (Web Security). Hệ thống sử dụng CasWAF (dựa trên ModSecurity/Casbin) làm Gateway bảo vệ cho một ứng dụng Python Flask chứa nhiều lỗ hổng bảo mật nghiêm trọng.
+# 🛡️ CasWAF Security Lab - Web Application Firewall Demo
 
-🏗️ Kiến trúc Hệ thống
-Dữ liệu di chuyển theo luồng sau: User (Browser) ➡️ CasWAF (Port 80) ➡️ Reverse Proxy ➡️ Vulnerable App (Port 5000)
+Dự án này là một môi trường Lab giả lập để thực hành tấn công và phòng thủ Web (Web Security). Hệ thống sử dụng **CasWAF** (dựa trên ModSecurity/Casbin) làm Gateway bảo vệ cho một ứng dụng **Python Flask** chứa nhiều lỗ hổng bảo mật nghiêm trọng.
 
-WAF Node: Chạy trên Docker, đóng vai trò Reverse Proxy và Firewall kiểm soát traffic.
+## 🏗️ Kiến trúc Hệ thống
 
-Upstream (Backend): Một Web Server Python đơn giản mô phỏng các lỗi bảo mật thường gặp (XSS, SQLi, Command Injection).
+Dữ liệu di chuyển theo luồng sau:
+`User (Browser)` ➡️ `CasWAF (Port 80)` ➡️ `Reverse Proxy` ➡️ `Vulnerable App (Port 5000)`
 
-📂 Cấu trúc Dự án
-Plaintext
+* **WAF Node:** Chạy trên Docker, đóng vai trò Reverse Proxy và Firewall kiểm soát traffic.
+* **Upstream (Backend):** Một Web Server Python đơn giản mô phỏng các lỗi bảo mật thường gặp (XSS, SQLi, Command Injection).
 
+## 📂 Cấu trúc Dự án
+
+```text
 caswaf-security-lab/
 ├── caswaf/                 # Mã nguồn và cấu hình Docker của CasWAF
 │   ├── docker-compose.yml  # File cấu hình Container (Port 80 & 17000)
@@ -20,6 +22,8 @@ caswaf-security-lab/
 │   └── requirements.txt    # Thư viện cần thiết
 ├── screenshots/            # Ảnh chụp màn hình Demo (Evidence)
 └── README.md               # Tài liệu hướng dẫn
+```
+
 🚀 Hướng dẫn Cài đặt
 1. Yêu cầu (Prerequisites)
 Docker & Docker Compose
@@ -113,7 +117,7 @@ Giao diện cấu hình Site và Rule.
 
 2. WAF chặn thành công (403 Forbidden)
 Màn hình kẻ tấn công nhận được khi bị chặn.
-![SQLi](images/Screenshot_2025-11-26_220714.png)
+![SQLi](WAF/images/Screenshot_2025-11-26_220714.png)
 
 ![XSS](images/Screenshot_2025-11-26_221943.png)
 
